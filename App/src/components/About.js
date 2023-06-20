@@ -10,7 +10,7 @@ class LandingPage extends Component {
 
     render() {
         const info =
-            " Eirik er en fersk fullstackutvikler med lidenskap for løsningsarkitektur og spennende funksjonalitet. Å skape nye og nyttige verktøyer, og gode brukeropplevelser er veldig tilfredsstillende -EirikBigboi";
+            "Eirik er en fersk fullstackutvikler med lidenskap for løsningsarkitektur og spennende funksjonalitet. Å skape nye og nyttige verktøyer, og gode brukeropplevelser er veldig tilfredsstillende -EirikBigboi";
 
         return (
             <div className="info-box">
