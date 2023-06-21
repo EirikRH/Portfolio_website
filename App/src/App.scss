@@ -19,6 +19,7 @@ body {
 
 main {
     padding-top: $nav-bar-height;
+    height: fit-content;
 }
 
 //NAV-BAR STYLING
@@ -143,28 +144,57 @@ main {
     }
 }
 
-//PROJECTS STYLING
-.carousel {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
+//CONTACT FORM STYLING
+.contact-container {
+    width: 100vw;
+    background-color: rgba(128, 128, 128, 0.114);
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        margin: 0 auto;
 
-    width: 500px;
+        height: fit-content;
+        justify-content: space-between;
 
-    .slider {
-        width: 100%;
-    }
+        .text-input,
+        .message-input,
+        .send-button {
+            line-height: 35px;
+            margin: 20px 0;
+            display: block;
+            background-color: rgba(128, 128, 128, 0.114);
+            border: none;
+            font-size: 1.25rem;
+            font-weight: 300;
+        }
 
-    img {
-        flex: 0 0 25%;
-        width: 25%;
-        aspect-ratio: 16 / 9;
-        padding: 0.25rem;
+        .text-input {
+            width: 30vw;
+            letter-spacing: 1px;
+            padding-left: 5px;
+        }
+
+        .message-input {
+            width: 50vw;
+            height: 200px;
+            resize: none;
+            padding-left: 5px;
+        }
+        .send-button {
+            width: fit-content;
+            padding: 0 1vw;
+            line-height: 40px;
+            border-radius: 5px;
+        }
     }
 }
 
 //RESPONSIVE STYLING - WIDTH - CONTENT
 @media screen and (max-width: 1600px) {
+    main {
+        padding-top: 70px;
+    }
     //ABOUT ME STYLING
     .info-box {
         .info-text {
@@ -196,8 +226,15 @@ main {
         }
     }
 }
-
 //RESPONSIVE NAV-BAR
+@media screen and (max-width: 1100px) {
+    .navbar .navbar-links .link {
+        font-size: 1.5rem;
+    }
+    .navbar .title a {
+        font-size: 2.5rem;
+    }
+}
 @media screen and (max-width: 1010px) {
     .navbar {
         z-index: 999;
@@ -246,7 +283,7 @@ main {
 
 @media screen and (max-height: 650px) {
     main {
-        padding: 30px 0;
+        padding: 40px 0;
     }
     .info-box {
         .img-rounder {

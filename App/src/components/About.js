@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import HEADSHOT from "../resources/eirik.jpg";
-
 class AboutMe extends Component {
     constructor(props) {
         super(props);
