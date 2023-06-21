@@ -14,8 +14,7 @@ body {
 }
 
 main {
-  padding-top: calc(2rem + 30px);
-  margin-bottom: 15px;
+  padding-top: 15vh;
 }
 
 @keyframes mymove {
@@ -130,12 +129,21 @@ nav .link:hover {
   }
   main {
     margin: 0 auto;
-    padding-top: 10px;
+    padding-top: 12.5vh;
     padding-left: calc(15vw + 5px);
   }
   .info-box .info-text {
     max-width: 70vw;
   }
+  .info-box .img-rounder {
+    width: 250px;
+    height: 250px;
+  }
+  .info-box .info-img {
+    width: 250px;
+  }
+}
+@media screen and (max-height: 650px) {
   .info-box .img-rounder {
     width: 250px;
     height: 250px;
