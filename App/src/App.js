@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import Projects from "./components/Projects";
 import Navigation from "./components/Nav";
-import LandingPage from "./components/About";
+import AboutMe from "./components/About";
 import Certifications from "./components/Certifications";
 import Contact from "./components/Contact";
 
@@ -17,16 +17,26 @@ class App extends Component {
     }
 
     render() {
+        const allOfIt = (
+            <div className="frontpage-main">
+                <AboutMe />
+                <Projects />
+                <Certifications />
+                <Contact />
+            </div>
+        );
         return (
             <div className="App">
                 <Navigation />
                 <main>
                     <Routes>
+                        <Route path="/" exact="true" element={allOfIt} />
                         <Route
-                            path="/"
+                            path="/AboutMe"
                             exact="true"
-                            element={<LandingPage />}
+                            element={<AboutMe />}
                         />
+
                         <Route
                             path="/Projects"
                             exact="true"

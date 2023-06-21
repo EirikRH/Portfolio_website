@@ -3,7 +3,7 @@
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: lighter;
-  color: #727272;
+  color: #6c6c6c;
   box-sizing: border-box;
 }
 
@@ -25,21 +25,72 @@ main {
     scale: 1.08;
   }
 }
-nav {
+.navbar {
   display: flex;
   height: fit-content;
   width: 100vw;
+  justify-content: space-between;
+  align-items: center;
   background-color: rgba(128, 128, 128, 0.114);
 }
-nav .link {
+.navbar .title {
+  font-size: 3rem;
+  line-height: 80px;
+  padding: 0 15px;
+  letter-spacing: 4px;
+  font-weight: 500;
+}
+.navbar .title a {
+  text-decoration: none;
+}
+.navbar .title:hover {
+  scale: 1.02;
+}
+.navbar .navbar-links {
+  margin-right: 15px;
+  display: flex;
+  flex-direction: row;
+}
+.navbar .navbar-links li {
+  list-style: none;
+  margin: 0 1.25rem;
+  border-radius: 7px;
+}
+.navbar .navbar-links .link,
+.navbar .navbar-links a {
   display: block;
+  padding: 0 15px;
+  line-height: 60px;
   text-decoration: none;
   font-size: 2rem;
-  margin: 15px auto;
-  text-align: center;
 }
-nav .link:hover {
-  animation: mymove 0.6s infinite alternate;
+.navbar .navbar-links li:active {
+  scale: 1.03;
+  background-color: rgba(112, 112, 112, 0.2392156863);
+}
+.navbar .navbar-links li:hover {
+  background-color: rgba(112, 112, 112, 0.2392156863);
+}
+.navbar .toggle-button {
+  position: absolute;
+  right: 15px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 15px;
+  height: 50px;
+  width: 60px;
+  background-color: rgba(112, 112, 112, 0.2392156863);
+  border-radius: 4px;
+}
+.navbar .toggle-button :hover {
+  background-color: rgba(112, 112, 112, 0.2392156863);
+}
+.navbar .toggle-button .bar {
+  height: 3px;
+  background-color: #6c6c6c;
+  border-radius: 15px;
 }
 
 .info-box {
@@ -112,29 +163,32 @@ nav .link:hover {
     width: 250px;
   }
 }
-@media screen and (max-height: 500px) {
-  .App {
+@media screen and (max-width: 1010px) {
+  .navbar {
+    z-index: 999;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar .toggle-button {
     display: flex;
   }
-  nav {
-    position: fixed;
+  .navbar .navbar-links {
+    display: none;
     flex-direction: column;
-    width: 15vw;
-    height: 100vh;
+    width: 100%;
+    background-color: rgba(61, 61, 61, 0.1058823529);
   }
-  nav .link {
-    margin: auto 5px;
-    font-size: 1.25rem;
-    word-wrap: break-word;
+  .navbar .navbar-links li {
+    border-radius: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
   }
-  main {
-    margin: 0 auto;
-    padding-top: 12.5vh;
-    padding-left: calc(15vw + 5px);
+  .navbar .navbar-links.active {
+    display: flex;
   }
-  .info-box .info-text {
-    max-width: 70vw;
-  }
+}
+@media screen and (max-height: 500px) {
   .info-box .img-rounder {
     width: 250px;
     height: 250px;
@@ -144,6 +198,9 @@ nav .link:hover {
   }
 }
 @media screen and (max-height: 650px) {
+  main {
+    padding: 30px 0;
+  }
   .info-box .img-rounder {
     width: 250px;
     height: 250px;

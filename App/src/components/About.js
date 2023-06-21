@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HEADSHOT from "../resources/eirik.jpg";
 
-class LandingPage extends Component {
+class AboutMe extends Component {
     constructor(props) {
         super(props);
 
@@ -23,4 +23,4 @@ class LandingPage extends Component {
     }
 }
 
-export default LandingPage;
+export default AboutMe;
