@@ -12,7 +12,7 @@ class AboutMe extends Component {
             "Eirik er en fersk fullstackutvikler med lidenskap for løsningsarkitektur og spennende funksjonalitet. Å skape nye og nyttige verktøyer, og gode brukeropplevelser er veldig tilfredsstillende -EirikBigboi";
 
         return (
-            <div className="info-box">
+            <div className="info-box component">
                 <div className="img-rounder">
                     <img className="info-img" src={HEADSHOT} alt="Eirik" />
                 </div>

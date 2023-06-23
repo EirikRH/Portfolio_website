@@ -20,7 +20,7 @@ class App extends Component {
         const allOfIt = (
             <div className="frontpage-main">
                 <AboutMe />
-                <Projects />
+                <Projects backgroundColor={"rgba(128, 128, 128, 0.114)"} />
                 <Certifications />
                 <Contact />
             </div>
