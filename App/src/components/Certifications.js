@@ -1,10 +1,25 @@
 import React, { Component } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faReact,
+    faNodeJs,
+    faJsSquare,
+} from "@fortawesome/free-brands-svg-icons";
 class Certifications extends Component {
     render() {
         return (
             <div className="certifications-box component">
-                <div>Diploma</div>
+                <div>
+                    <h3>Technologies</h3>
+                    <br />
+                    <FontAwesomeIcon className="tech-icon" icon={faJsSquare} />
+                    <FontAwesomeIcon className="tech-icon" icon={faNodeJs} />
+                    <FontAwesomeIcon className="tech-icon" icon={faReact} />
+                </div>
+                <div>
+                    <h3>Certifications</h3>
+                </div>
             </div>
         );
     }

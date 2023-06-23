@@ -258,6 +258,30 @@ main .component {
         scale: 1.04;
     }
 }
+
+.certifications-box {
+    margin: 0 auto;
+    width: 50vw;
+    display: flex;
+    flex-direction: row;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 1vw 3vw;
+
+        text-align: center;
+
+        width: fit-content;
+        background-color: rgba(128, 128, 128, 0.114);
+
+        .tech-icon {
+            scale: 2;
+            margin: 2vh;
+        }
+    }
+}
 //RESPONSIVE STYLING - WIDTH - CONTENT
 @media screen and (max-width: 1600px) {
     main * {

@@ -240,6 +240,26 @@ main .component {
   scale: 1.04;
 }
 
+.certifications-box {
+  margin: 0 auto;
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+}
+.certifications-box div {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1vw 3vw;
+  text-align: center;
+  width: fit-content;
+  background-color: rgba(128, 128, 128, 0.114);
+}
+.certifications-box div .tech-icon {
+  scale: 2;
+  margin: 2vh;
+}
+
 @media screen and (max-width: 1600px) {
   main * {
     font-size: 1.25rem;
