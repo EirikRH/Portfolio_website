@@ -118,9 +118,9 @@ html:hover {
   background-color: rgba(112, 112, 112, 0.2392156863);
 }
 .navbar .toggle-button .bar {
-  height: 3px;
+  height: 2px;
   background-color: #6c6c6c;
-  border-radius: 15px;
+  border-radius: 20%;
 }
 
 .info-box {
@@ -146,7 +146,7 @@ html:hover {
   object-fit: cover;
 }
 .info-box .info-text {
-  margin-top: 15px;
+  margin-top: 30px;
   text-align: center;
   max-width: 40vw;
 }
@@ -156,19 +156,21 @@ html:hover {
   margin: 4vh 30px;
 }
 
-.contact-container {
+.contact-box {
   width: 100vw;
   margin: 0 auto;
 }
-.contact-container .contact-text {
+.contact-box .contact-text {
   margin: 0 auto 5vh auto;
   text-align: center;
   max-width: 40vw;
 }
-.contact-container .form-container {
+.contact-box .form-container {
+  display: block;
+  padding: 30px;
   background-color: rgba(128, 128, 128, 0.114);
 }
-.contact-container .form-container .contact-form {
+.contact-box .form-container .contact-form {
   display: flex;
   flex-direction: column;
   width: 50vw;
@@ -176,34 +178,34 @@ html:hover {
   height: fit-content;
   justify-content: space-between;
 }
-.contact-container .form-container .contact-form .text-input,
-.contact-container .form-container .contact-form .message-input,
-.contact-container .form-container .contact-form .send-button {
+.contact-box .form-container .contact-form .text-input,
+.contact-box .form-container .contact-form .message-input,
+.contact-box .form-container .contact-form .send-button {
   line-height: 35px;
-  margin: 20px 0;
+  margin: 15px 0;
   display: block;
   background-color: rgba(128, 128, 128, 0.114);
   border: none;
   font-size: 1.25rem;
   font-weight: 300;
 }
-.contact-container .form-container .contact-form .text-input {
+.contact-box .form-container .contact-form .text-input {
   width: 30vw;
   letter-spacing: 1px;
   padding-left: 5px;
 }
-.contact-container .form-container .contact-form .message-input {
+.contact-box .form-container .contact-form .message-input {
   height: 200px;
   resize: none;
   padding-left: 5px;
 }
-.contact-container .form-container .contact-form .send-button {
+.contact-box .form-container .contact-form .send-button {
   width: fit-content;
   padding: 0 1vw;
   line-height: 40px;
   border-radius: 5px;
 }
-.contact-container .form-container .contact-form .send-button:active {
+.contact-box .form-container .contact-form .send-button:active {
   scale: 1.05;
 }
 
@@ -222,38 +224,15 @@ html:hover {
     width: 350px;
   }
 }
-@media screen and (max-width: 850px) {
-  .info-box .info-text {
-    max-width: 70vw;
-  }
-  .info-box .img-rounder {
-    width: 250px;
-    height: 250px;
-  }
-  .info-box .info-img {
-    width: 250px;
-  }
-  .contact-icon {
-    scale: 2;
-    margin: 4vh 20px;
-  }
-  .contact-container .contact-text {
-    max-width: 80vw;
-    font-size: 1.3rem;
-  }
-  .contact-container .form-container .contact-form {
-    width: 80vw;
-  }
-  .contact-container .form-container .contact-form .text-input {
-    width: 55vw;
-  }
-}
 @media screen and (max-width: 1200px) {
   .navbar .navbar-links .link {
     font-size: 1.5rem;
   }
-  .contact-container .form-container .contact-form {
+  .contact-box .form-container .contact-form {
     width: 80vw;
+  }
+  .contact-box .form-container .contact-form .text-input {
+    width: 75%;
   }
 }
 @media screen and (max-width: 1010px) {
@@ -279,6 +258,30 @@ html:hover {
   }
   .navbar .navbar-links.active {
     display: flex;
+  }
+}
+@media screen and (max-width: 850px) {
+  .info-box .info-text {
+    max-width: 70vw;
+  }
+  .info-box .img-rounder {
+    width: 250px;
+    height: 250px;
+  }
+  .info-box .info-img {
+    width: 250px;
+  }
+  .contact-box .contact-text {
+    max-width: 80vw;
+  }
+  .contact-box .form-container .contact-form {
+    width: 80vw;
+  }
+  .contact-box .form-container .contact-form .text-input {
+    width: 100%;
+  }
+  .contact-box .form-container .contact-form .message-input {
+    height: 300px;
   }
 }
 @media screen and (max-height: 650px) {

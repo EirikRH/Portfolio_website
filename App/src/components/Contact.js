@@ -23,7 +23,7 @@ class Contact extends Component {
     }
     render() {
         return (
-            <div className="contact-container">
+            <div className="contact-box">
                 <div className="contact-text">
                     Do you have a question for me, or just want to have a chat?
                     <br />
