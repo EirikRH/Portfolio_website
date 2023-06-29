@@ -10,12 +10,6 @@ import Contact from "./components/Contact";
 import "./App.css";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {};
-    }
-
     render() {
         const allOfIt = (
             <div className="frontpage-main">

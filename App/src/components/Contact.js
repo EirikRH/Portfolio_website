@@ -10,18 +10,72 @@ class Contact extends Component {
         this.state = {
             name: "",
             subject: "",
-            contactInfo: "",
+            email: "",
             message: "",
+            displayCancelButton: false,
+            timeoutId: null,
         };
     }
+
     handleSendMesage(event) {
-        event.preventDefault();
+        const form = event.target.form;
+
+        if (form.checkValidity()) {
+            event.preventDefault();
+
+            const { name, subject, email, message } = form;
+
+            name.value = "";
+            subject.value = "";
+            email.value = "";
+            message.value = "";
+
+            this.setState({
+                displayCancelButton: true,
+            });
+
+            const timeoutId = setTimeout(() => {
+                this.setState({
+                    displayCancelButton: false,
+                });
+            }, 5000);
+            this.setState({ timeoutId });
+
+            setTimeout(() => {
+                const progressBar = document.querySelector(".progress-bar");
+                progressBar.style.width = "100%";
+            }, 100);
+        }
     }
 
-    handleInputFieldChange(event, target) {
+    handleCancelMessage(event) {
         event.preventDefault();
+
+        const form = event.target.form;
+        const { name, subject, email, message } = form;
+        name.value = this.state.name;
+        subject.value = this.state.subject;
+        email.value = this.state.email;
+        message.value = this.state.message;
+
+        this.setState({
+            displayCancelButton: false,
+        });
+
+        const { timeoutId } = this.state;
+        clearTimeout(timeoutId);
+    }
+
+    handleInputFieldChange(event) {
+        const content = event.target.value;
+        const inputFieldName = event.target.name;
+
+        this.setState({
+            [inputFieldName]: content,
+        });
     }
     render() {
+        const { displayCancelButton } = this.state;
         return (
             <div className="contact-box component">
                 <div className="contact-text">
@@ -58,34 +112,53 @@ class Contact extends Component {
                     <form className="contact-form">
                         <input
                             name="name"
+                            required
                             className="text-input"
                             type="text"
                             placeholder="What do I call you?"
+                            onChange={this.handleInputFieldChange.bind(this)}
                         ></input>
                         <input
                             name="subject"
                             className="text-input"
                             type="text"
                             placeholder="Subject.."
+                            onChange={this.handleInputFieldChange.bind(this)}
                         ></input>
                         <input
-                            name="contactInfo"
+                            name="email"
+                            required
                             className="text-input"
-                            type="text"
-                            placeholder="Contact information..."
+                            type="email"
+                            placeholder="your@email.com"
+                            onChange={this.handleInputFieldChange.bind(this)}
                         ></input>
                         <textarea
                             name="message"
+                            required
                             className="message-input"
                             type="text-field"
                             placeholder="Message..."
+                            onChange={this.handleInputFieldChange.bind(this)}
                         ></textarea>
-                        <button
-                            className="send-button"
-                            onClick={this.handleSendMesage.bind(this)}
-                        >
-                            Send Message
-                        </button>
+                        {(displayCancelButton && (
+                            <button
+                                className="button cancel-button"
+                                type="submit"
+                                onClick={this.handleCancelMessage.bind(this)}
+                            >
+                                Edit Message
+                                <span className="progress-bar"></span>
+                            </button>
+                        )) || (
+                            <button
+                                className="button"
+                                type="submit"
+                                onClick={this.handleSendMesage.bind(this)}
+                            >
+                                Send Message
+                            </button>
+                        )}
                     </form>
                 </div>
             </div>

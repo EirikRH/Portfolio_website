@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faReact,
-    faNodeJs,
     faJsSquare,
+    faNode,
 } from "@fortawesome/free-brands-svg-icons";
 class Certifications extends Component {
     render() {
@@ -14,7 +14,7 @@ class Certifications extends Component {
                     <h3>Technologies</h3>
                     <br />
                     <FontAwesomeIcon className="tech-icon" icon={faJsSquare} />
-                    <FontAwesomeIcon className="tech-icon" icon={faNodeJs} />
+                    <FontAwesomeIcon className="tech-icon" icon={faNode} />
                     <FontAwesomeIcon className="tech-icon" icon={faReact} />
                 </div>
                 <div>
