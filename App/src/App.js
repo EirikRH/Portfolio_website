@@ -16,7 +16,10 @@ class App extends Component {
                 <AboutMe />
                 <Projects backgroundColor={"rgba(128, 128, 128, 0.114)"} />
                 <Certifications />
-                <Contact />
+                <Contact
+                    backgroundColor={"rgba(128, 128, 128, 0.114)"}
+                    onFrontpage={true}
+                />
             </div>
         );
         return (

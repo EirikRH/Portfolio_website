@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelopeSquare } from "@fortawesome/free-solid-svg-icons";
 
 class Contact extends Component {
     constructor(props) {
@@ -76,8 +77,11 @@ class Contact extends Component {
     }
     render() {
         const { displayCancelButton } = this.state;
+        const onFrontpage = this.props.onFrontpage;
+        const backgroundColor = this.props.backgroundColor;
+
         return (
-            <div className="contact-box component">
+            <div className="contact-box component" style={{ backgroundColor }}>
                 <div className="contact-text">
                     Do you have a question for me, or just want to have a chat?
                     <br />
@@ -96,6 +100,18 @@ class Contact extends Component {
                                 icon={faLinkedin}
                             />
                         </Link>
+                        {onFrontpage && (
+                            <Link
+                                to="/Contact"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <FontAwesomeIcon
+                                    className="contact-icon"
+                                    icon={faEnvelopeSquare}
+                                />
+                            </Link>
+                        )}
                         <Link
                             to="https://github.com/EirikRH"
                             target="_blank"
@@ -108,59 +124,71 @@ class Contact extends Component {
                         </Link>
                     </div>
                 </div>
-                <div className="form-container">
-                    <form className="contact-form">
-                        <input
-                            name="name"
-                            required
-                            className="text-input"
-                            type="text"
-                            placeholder="What do I call you?"
-                            onChange={this.handleInputFieldChange.bind(this)}
-                        ></input>
-                        <input
-                            name="subject"
-                            className="text-input"
-                            type="text"
-                            placeholder="Subject.."
-                            onChange={this.handleInputFieldChange.bind(this)}
-                        ></input>
-                        <input
-                            name="email"
-                            required
-                            className="text-input"
-                            type="email"
-                            placeholder="your@email.com"
-                            onChange={this.handleInputFieldChange.bind(this)}
-                        ></input>
-                        <textarea
-                            name="message"
-                            required
-                            className="message-input"
-                            type="text-field"
-                            placeholder="Message..."
-                            onChange={this.handleInputFieldChange.bind(this)}
-                        ></textarea>
-                        {(displayCancelButton && (
-                            <button
-                                className="button cancel-button"
-                                type="submit"
-                                onClick={this.handleCancelMessage.bind(this)}
-                            >
-                                Edit Message
-                                <span className="progress-bar"></span>
-                            </button>
-                        )) || (
-                            <button
-                                className="button"
-                                type="submit"
-                                onClick={this.handleSendMesage.bind(this)}
-                            >
-                                Send Message
-                            </button>
-                        )}
-                    </form>
-                </div>
+                {!onFrontpage && (
+                    <div className="form-container">
+                        <form className="contact-form">
+                            <input
+                                name="name"
+                                required
+                                className="text-input"
+                                type="text"
+                                placeholder="What do I call you?"
+                                onChange={this.handleInputFieldChange.bind(
+                                    this
+                                )}
+                            ></input>
+                            <input
+                                name="subject"
+                                className="text-input"
+                                type="text"
+                                placeholder="Subject.."
+                                onChange={this.handleInputFieldChange.bind(
+                                    this
+                                )}
+                            ></input>
+                            <input
+                                name="email"
+                                required
+                                className="text-input"
+                                type="email"
+                                placeholder="your@email.com"
+                                onChange={this.handleInputFieldChange.bind(
+                                    this
+                                )}
+                            ></input>
+                            <textarea
+                                name="message"
+                                required
+                                className="message-input"
+                                type="text-field"
+                                placeholder="Message..."
+                                onChange={this.handleInputFieldChange.bind(
+                                    this
+                                )}
+                            ></textarea>
+                            {(displayCancelButton && (
+                                <button
+                                    className="button cancel-button"
+                                    type="submit"
+                                    onClick={this.handleCancelMessage.bind(
+                                        this
+                                    )}
+                                >
+                                    Edit Message
+                                    <span className="progress-bar"></span>
+                                </button>
+                            )) || (
+                                <button
+                                    className="button"
+                                    type="submit"
+                                    onClick={this.handleSendMesage.bind(this)}
+                                >
+                                    Send Message
+                                </button>
+                            )}
+                        </form>
+                    </div>
+                )}
             </div>
         );
     }
