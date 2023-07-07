@@ -5,6 +5,8 @@
   font-weight: lighter;
   color: #6c6c6c;
   box-sizing: border-box;
+  transition: scale 0.2s linear;
+  transition: font-size 0.2s linear;
 }
 
 body {
@@ -20,6 +22,7 @@ body {
 }
 
 main {
+  padding-top: 10vh;
   height: fit-content;
 }
 main * {
@@ -56,16 +59,20 @@ html:hover {
 
 main .component {
   padding-top: 10vh;
-  margin-bottom: 10vh;
+  padding-bottom: 10vh;
 }
 
 .navbar {
+  position: fixed;
+  top: 0;
   display: flex;
   height: fit-content;
   width: 100vw;
+  backdrop-filter: blur(3px);
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(128, 128, 128, 0.114);
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.5s linear;
 }
 .navbar .title {
   font-size: 3rem;
@@ -115,7 +122,7 @@ main .component {
   margin: 15px;
   height: 50px;
   width: 60px;
-  background-color: rgba(112, 112, 112, 0.2392156863);
+  background-color: rgba(112, 112, 112, 0.1647058824);
   border-radius: 4px;
 }
 .navbar .toggle-button :hover {
@@ -148,6 +155,19 @@ main .component {
   width: 450px;
   height: auto;
   object-fit: cover;
+}
+.info-box .intro-box {
+  text-align: center;
+  margin: 20px 0;
+}
+.info-box .intro-box .my-name {
+  font-size: 2rem;
+  font-weight: 400;
+  border-bottom: 1px solid #6c6c6c;
+  margin-bottom: 20px;
+}
+.info-box .intro-box .my-title {
+  font-size: 1rem;
 }
 .info-box .info-text {
   margin-top: 30px;
@@ -313,7 +333,6 @@ main .component {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: rgba(61, 61, 61, 0.1058823529);
   }
   .navbar .navbar-links li {
     border-radius: 0;
@@ -339,6 +358,9 @@ main .component {
   }
   .info-box .info-img {
     width: 250px;
+  }
+  .info-box .intro-box .my-name {
+    font-size: 1.8rem;
   }
   .contact-box .contact-text {
     max-width: 80vw;

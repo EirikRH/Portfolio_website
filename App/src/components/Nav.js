@@ -9,25 +9,52 @@ class Navigation extends Component {
         };
     }
 
-    handleNavBarToggle(event) {
+    async handleNavBarToggle(event) {
         event.preventDefault();
-
+        const { navToggle } = this.state;
         const links = document.getElementsByClassName("navbar-links")[0];
 
+        this.setState({ navToggle: !navToggle });
         links.classList.toggle("active");
     }
 
-    handleLinkClick() {
+    clearHamburgerMenu() {
+        const { navToggle } = this.state;
         const links = document.getElementsByClassName("navbar-links")[0];
 
-        links.classList.toggle("active");
+        if (navToggle) {
+            this.setState({ navToggle: false });
+            links.classList.toggle("active");
+        }
+    }
+
+    componentDidMount() {
+        window.addEventListener("resize", () => {
+            const windowSize = window.innerWidth;
+            const { navToggle } = this.state;
+
+            if (windowSize > 1010 && navToggle) {
+                this.clearHamburgerMenu();
+            }
+        });
+        window.addEventListener("scroll", () => {
+            const navNode = document.getElementById("navbar");
+            if (window.scrollY > 1) {
+                navNode.style.zIndex = 999;
+                navNode.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+            } else {
+                navNode.style = "none";
+            }
+        });
     }
 
     render() {
         return (
-            <nav className="navbar">
+            <nav className="navbar" id="navbar">
                 <div className="title">
-                    <Link to={"/"}>EirikRH</Link>
+                    <Link to={"/"} onClick={this.clearHamburgerMenu.bind(this)}>
+                        EirikRH
+                    </Link>
                 </div>
 
                 <a
@@ -46,7 +73,7 @@ class Navigation extends Component {
                             className="link"
                             exact
                             to={"/AboutMe"}
-                            onClick={this.handleLinkClick.bind(this)}
+                            onClick={this.clearHamburgerMenu.bind(this)}
                         >
                             About Me
                         </Link>
@@ -56,7 +83,7 @@ class Navigation extends Component {
                             className="link"
                             exact
                             to={"/Projects"}
-                            onClick={this.handleLinkClick.bind(this)}
+                            onClick={this.clearHamburgerMenu.bind(this)}
                         >
                             Projects
                         </Link>
@@ -66,7 +93,7 @@ class Navigation extends Component {
                             className="link"
                             exact
                             to={"/Certifications"}
-                            onClick={this.handleLinkClick.bind(this)}
+                            onClick={this.clearHamburgerMenu.bind(this)}
                         >
                             Certifications
                         </Link>
@@ -76,7 +103,7 @@ class Navigation extends Component {
                             className="link"
                             exact
                             to={"/Contact"}
-                            onClick={this.handleLinkClick.bind(this)}
+                            onClick={this.clearHamburgerMenu.bind(this)}
                         >
                             Contact
                         </Link>

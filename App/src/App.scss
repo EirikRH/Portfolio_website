@@ -5,6 +5,8 @@
     font-weight: lighter;
     color: #6c6c6c;
     box-sizing: border-box;
+    transition: scale 0.2s linear;
+    transition: font-size 0.2s linear;
 }
 
 // Her ligger bare bakgrunnsbildet.
@@ -21,6 +23,7 @@ body {
     overflow-x: hidden;
 }
 main {
+    padding-top: 10vh;
     height: fit-content;
     * {
         font-size: 1.5rem;
@@ -52,18 +55,23 @@ html:hover {
 }
 main .component {
     padding-top: 10vh;
-    margin-bottom: 10vh;
+    padding-bottom: 10vh;
 }
 //NAV-BAR STYLING
 .navbar {
+    position: fixed;
+    top: 0;
     display: flex;
     height: fit-content;
     width: 100vw;
+    backdrop-filter: blur(3px);
 
     justify-content: space-between;
     align-items: center;
 
-    background-color: rgba(128, 128, 128, 0.114);
+    background-color: rgba(255, 255, 255, 0.7);
+
+    transition: background-color 0.5s linear;
 
     .title {
         font-size: 3rem;
@@ -120,7 +128,7 @@ main .component {
         height: 50px;
         width: 60px;
 
-        background-color: #7070703d;
+        background-color: #7070702a;
         border-radius: 4px;
 
         :hover {
@@ -157,6 +165,20 @@ main .component {
         width: 450px;
         height: auto;
         object-fit: cover;
+    }
+
+    .intro-box {
+        text-align: center;
+        margin: 20px 0;
+        .my-name {
+            font-size: 2rem;
+            font-weight: 400;
+            border-bottom: 1px solid #6c6c6c;
+            margin-bottom: 20px;
+        }
+        .my-title {
+            font-size: 1rem;
+        }
     }
 
     .info-text {
@@ -344,8 +366,6 @@ main .component {
             flex-direction: column;
             width: 100%;
 
-            background-color: #3d3d3d1b;
-
             li {
                 border-radius: 0;
                 text-align: center;
@@ -378,6 +398,12 @@ main .component {
         }
         .info-img {
             width: 250px;
+        }
+
+        .intro-box {
+            .my-name {
+                font-size: 1.8rem;
+            }
         }
     }
     //CONTACT STYLING

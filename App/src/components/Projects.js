@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Projects extends Component {
+    componentDidMount() {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+
     render() {
         const backgroundColor = this.props.backgroundColor;
         return (

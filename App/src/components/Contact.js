@@ -75,6 +75,10 @@ class Contact extends Component {
             [inputFieldName]: content,
         });
     }
+
+    componentDidMount() {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
     render() {
         const { displayCancelButton } = this.state;
         const onFrontpage = this.props.onFrontpage;
@@ -101,11 +105,7 @@ class Contact extends Component {
                             />
                         </Link>
                         {onFrontpage && (
-                            <Link
-                                to="/Contact"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <Link to="/Contact" rel="noopener noreferrer">
                                 <FontAwesomeIcon
                                     className="contact-icon"
                                     icon={faEnvelopeSquare}
