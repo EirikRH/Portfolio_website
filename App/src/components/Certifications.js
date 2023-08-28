@@ -8,7 +8,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 class Certifications extends Component {
     componentDidMount() {
-        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        setTimeout(() => {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }, 1);
     }
     render() {
         return (
