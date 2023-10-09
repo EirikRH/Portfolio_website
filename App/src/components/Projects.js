@@ -13,9 +13,9 @@ class Projects extends Component {
             <div className="projects-box component" style={{ backgroundColor }}>
                 <div className="title">Things I have worked on</div>
                 <div className="project-holder">
-                    <div className="project">Zero</div>
-                    <div className="project">Zip</div>
-                    <div className="project">NADAAAAA</div>
+                    <div className="project"></div>
+                    <div className="project"></div>
+                    <div className="project"></div>
                 </div>
             </div>
         );
