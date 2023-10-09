@@ -16,6 +16,7 @@ class Projects extends Component {
                     <div className="project"></div>
                     <div className="project"></div>
                     <div className="project"></div>
+                    <div className="project"></div>
                 </div>
             </div>
         );
