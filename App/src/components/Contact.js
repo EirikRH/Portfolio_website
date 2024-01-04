@@ -18,28 +18,38 @@ class Contact extends Component {
         };
     }
 
-    handleSendMesage(event) {
+    async handleSendMesage(event) {
         const form = event.target.form;
+        const { name, subject, email, message } = this.state;
 
         if (form.checkValidity()) {
             event.preventDefault();
 
-            const { name, subject, email, message } = form;
-
-            name.value = "";
-            subject.value = "";
-            email.value = "";
-            message.value = "";
-
             this.setState({
                 displayCancelButton: true,
             });
-
+            
             const timeoutId = setTimeout(() => {
                 this.setState({
                     displayCancelButton: false,
                 });
+
+                fetch('http://localhost:3001/send', {
+                  method: 'POST',
+                  headers: {
+                    "Content-Type": 'application/json'
+                  },
+                  body: JSON.stringify({
+                    name,
+                    subject,
+                    email,
+                    message
+                  }),
+                })
+                .then(res => {if(!res.ok){throw new Error(`${res.status}`)} return res.json()})
+                .then(form.reset())
             }, 5000);
+
             this.setState({ timeoutId });
 
             setTimeout(() => {
